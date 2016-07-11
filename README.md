@@ -60,10 +60,11 @@ php artisan vendor:publish --tag="migrations"
 php artisan migrate
 ```
 
-4. (optional) Publish the config
+4. (optional) Publish the config and views
 
 ```php
 php artisan vendor:publish --tag="config"
+php artisan vendor:publish --tag="views"
 ```
 
 This published the config. See [Configuration](#configuration) for the available options.
