@@ -1,0 +1,28 @@
+{
+    "name": "swisnl/game-of-tests-laravel",
+    "description": "Laravel package for a Game of Tests.",
+    "keywords": ["laravel", "game-of-tests"],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.1.*|5.2.*",
+        "gitonomy/gitlib": "^1.0",
+        "monolog/monolog": "^1.19",
+        "swisnl/game-of-tests": "^0.1",
+        "knplabs/github-api": "^1.7"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "Swis\\GotLaravel\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
