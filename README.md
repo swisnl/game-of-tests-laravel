@@ -1,5 +1,7 @@
 # Game of Tests laravel 
 
+[![Packagist](https://img.shields.io/packagist/v/swisnl/game-of-tests-laravel.svg?maxAge=2592000)](https://packagist.org/packages/swisnl/game-of-tests-laravel)
+
 This package aims to enable a quick implementation of a Game of Tests in Laravel. Is uses the package [swisnl/game-of-tests](https://github.com/swisnl/game-of-tests/) and gives you a set of commands and basic templates to make your own Game of Tests.
 
 This package serves as a way to search through git repositories and find PHP tests. I was inspired by the the [Spotify testing game](https://github.com/spotify/testing-game) I ran in to.
