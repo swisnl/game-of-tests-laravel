@@ -13,7 +13,7 @@ class InspectUrl extends Command
      *
      * @var string
      */
-    protected $signature = 'got:inspect {repositoryUrl} {--dry-run:Only inspect, do not insert into the database}';
+    protected $signature = 'got:inspect {repositoryUrl} {--dry-run : Only inspect, do not insert into the database}';
 
     /**
      * The console command description.

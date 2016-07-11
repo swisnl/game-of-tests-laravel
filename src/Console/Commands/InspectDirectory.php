@@ -15,7 +15,7 @@ class InspectDirectory extends Command
      *
      * @var string
      */
-    protected $signature = 'got:inspect-directory {directory} {--skippast= : Skip all before (and including) this} {--modified= : Repository modified since (uses strtotime)} {--only= : Skip every directory except this one} {--dry-run:Only inspect, do not insert into the database}';
+    protected $signature = 'got:inspect-directory {directory} {--skippast= : Skip all before (and including) this} {--modified= : Repository modified since (uses strtotime)} {--only= : Skip every directory except this one} {--dry-run : Only inspect, do not insert into the database}';
 
     /**
      * The console command description.
