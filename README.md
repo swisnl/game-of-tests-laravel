@@ -13,7 +13,7 @@ The reason i wanted to my own implementation for PHP was to help gamify testing 
 
 
 - [How does it work?](#how-does-it-work)
-- [Demo](#author)
+- [Demo](#demo)
 - [Author](#author)
 - [Installation](#installation)
 - [Available routes](#available-routes)
