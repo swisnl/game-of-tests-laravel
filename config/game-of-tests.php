@@ -19,7 +19,7 @@ return [
     'excluded-filenames' => [
         'tests/ExampleTest.php',
         'vendor/%',
-        'tests/_%',
+        'tests/\_%',
     ],
 
     /**
