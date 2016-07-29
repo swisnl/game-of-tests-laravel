@@ -33,8 +33,6 @@ class InspectGithub extends Command
     {
 
         $client = new \Github\Client();
-        $client->useCache();
-
 
         $this->info('Getting repository list');
 
