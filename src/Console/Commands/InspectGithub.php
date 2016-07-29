@@ -32,9 +32,8 @@ class InspectGithub extends Command
     public function handle()
     {
 
-        $client = new \Github\Client(
-            new \Github\HttpClient\CachedHttpClient(array('cache_dir' => storage_path('github-cache')))
-        );
+        $client = new \Github\Client();
+        $client->useCache();
 
 
         $this->info('Getting repository list');
