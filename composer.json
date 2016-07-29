@@ -18,7 +18,7 @@
         "gitonomy/gitlib": "^1.0",
         "monolog/monolog": "^1.19",
         "swisnl/game-of-tests": "^0.1",
-        "knplabs/github-api": "^1.7"
+        "knplabs/github-api": "^2.0"
     },
     "require-dev": {
     },
