@@ -24,6 +24,22 @@ class InspectUrl extends Command
      */
     protected $description = 'Inspect a repository by URL';
 
+
+    /**
+     * @var \Swis\Got\Settings
+     */
+    protected $settings;
+
+    /**
+     * InspectDirectory constructor.
+     * @param \Swis\Got\Settings $settings
+     */
+    public function __construct(\Swis\Got\Settings $settings)
+    {
+        parent::__construct();
+        $this->settings = $settings;
+    }
+
     /**
      * Execute the console command.
      *
@@ -31,9 +47,9 @@ class InspectUrl extends Command
      * @throws \Gitonomy\Git\Exception\RuntimeException
      * @throws \Gitonomy\Git\Exception\InvalidArgumentException
      */
-    public function handle(\Swis\Got\Settings $settings)
+    public function handle()
     {
-        $inspector = new Inspector($settings);
+        $inspector = new Inspector($this->settings);
 
         $repository = $inspector->getRepositoryByUrl($this->argument('repositoryUrl'));
 

@@ -25,6 +25,8 @@ class InspectDirectory extends Command
      */
     protected $description = 'Inspect a directory with bare repositories';
 
+
+
     protected function logVerbose($message){
         if($this->getOutput()->isVerbose()){
             $this->info($message);
@@ -32,11 +34,26 @@ class InspectDirectory extends Command
     }
 
     /**
+     * @var \Swis\Got\Settings
+     */
+    protected $settings;
+
+    /**
+     * InspectDirectory constructor.
+     * @param \Swis\Got\Settings $settings
+     */
+    public function __construct(\Swis\Got\Settings $settings)
+    {
+        parent::__construct();
+        $this->settings = $settings;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return mixed
      */
-    public function handle(\Swis\Got\Settings $settings)
+    public function handle()
     {
 
 
@@ -53,7 +70,7 @@ class InspectDirectory extends Command
 
         \Swis\GotLaravel\Models\Results::unguard();
 
-        $inspector = new Inspector($settings);
+        $inspector = new Inspector($this->settings);
 
         foreach($scanned_directory as $path){
             $this->logVerbose('Inpecting: ' . $path);
