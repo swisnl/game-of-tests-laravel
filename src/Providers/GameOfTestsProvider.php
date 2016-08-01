@@ -66,6 +66,11 @@ class GameOfTestsProvider extends ServiceProvider {
     */
     public function register()
     {
+
+        $this->app->instance('Swis\Got\Settings', function(){
+            return \Swis\Got\SettingsFactory::create();
+        });
+
         $this->mergeConfigFrom(
             __DIR__.'/../../config/game-of-tests.php',
             'game-of-tests'

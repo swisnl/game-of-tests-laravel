@@ -30,7 +30,7 @@ class InspectGithub extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(\Swis\Got\Settings $settings)
     {
 
         $client = new \Github\Client(
@@ -55,8 +55,6 @@ class InspectGithub extends Command
 
         \Swis\GotLaravel\Models\Results::unguard();
 
-
-        $settings = SettingsFactory::create();
         $inspector = new Inspector($settings);
 
         foreach($repositoryUrls as $gitUrl){

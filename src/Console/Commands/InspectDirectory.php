@@ -36,7 +36,7 @@ class InspectDirectory extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(\Swis\Got\Settings $settings)
     {
 
 
@@ -53,8 +53,6 @@ class InspectDirectory extends Command
 
         \Swis\GotLaravel\Models\Results::unguard();
 
-
-        $settings = SettingsFactory::create();
         $inspector = new Inspector($settings);
 
         foreach($scanned_directory as $path){

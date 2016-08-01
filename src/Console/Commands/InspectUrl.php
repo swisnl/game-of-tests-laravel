@@ -31,10 +31,8 @@ class InspectUrl extends Command
      * @throws \Gitonomy\Git\Exception\RuntimeException
      * @throws \Gitonomy\Git\Exception\InvalidArgumentException
      */
-    public function handle()
+    public function handle(\Swis\Got\Settings $settings)
     {
-
-        $settings = SettingsFactory::create();
         $inspector = new Inspector($settings);
 
         $repository = $inspector->getRepositoryByUrl($this->argument('repositoryUrl'));
