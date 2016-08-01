@@ -17,7 +17,7 @@
         "laravel/framework": "5.1.*|5.2.*",
         "gitonomy/gitlib": "^1.0",
         "monolog/monolog": "^1.19",
-        "swisnl/game-of-tests": "dev-settings-factory-and-file-validation-interface",
+        "swisnl/game-of-tests": "^0.2",
         "knplabs/github-api": "^1.7"
     },
     "require-dev": {
