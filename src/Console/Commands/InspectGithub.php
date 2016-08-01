@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Swis\GoT\Inspector;
+use Swis\GoT\Settings\SettingsFactory;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 
 class InspectGithub extends Command
@@ -54,7 +55,10 @@ class InspectGithub extends Command
 
         \Swis\GotLaravel\Models\Results::unguard();
 
-        $inspector = new Inspector();
+
+        $settings = SettingsFactory::create();
+        $inspector = new Inspector($settings);
+
         foreach($repositoryUrls as $gitUrl){
 
             $repository = $inspector->getRepositoryByUrl($gitUrl);

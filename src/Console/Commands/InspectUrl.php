@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Swis\GoT\Inspector;
+use Swis\GoT\Settings\SettingsFactory;
 
 class InspectUrl extends Command
 {
@@ -32,7 +33,9 @@ class InspectUrl extends Command
      */
     public function handle()
     {
-        $inspector = new Inspector();
+
+        $settings = SettingsFactory::create();
+        $inspector = new Inspector($settings);
 
         $repository = $inspector->getRepositoryByUrl($this->argument('repositoryUrl'));
 
