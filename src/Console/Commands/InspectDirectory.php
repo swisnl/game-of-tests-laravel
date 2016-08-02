@@ -75,11 +75,6 @@ class InspectDirectory extends Command
         foreach($scanned_directory as $path){
             $this->logVerbose('Inpecting: ' . $path);
 
-            if(in_array($path, ['drupal8', 'webbeheer-library']) || strpos($path, 'inwerken') === 0){
-                $progresbar->advance();
-                continue;
-            }
-
 
             if(null !== $this->option('only') && strcmp($path, $this->option('only')) !== 0){
                 $progresbar->advance();
