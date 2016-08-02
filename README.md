@@ -193,7 +193,13 @@ What filename should not be included in the statistics. This is database LIKE ar
 
 ``excluded-authors`` : array
 
-What authors should not be included in the statistics. This is database LIKE argument. 
+What authors should not be included in the statistics. This is database LIKE argument.
+ 
+## cache
+
+``cache`` : boolean (default ``true``)
+
+Enable caching for GitHub requests so rate limiting is not a problem.
 
 ### Example
 

@@ -2,9 +2,11 @@
 namespace Swis\GotLaravel\Console\Commands;
 
 use Carbon\Carbon;
+use Illuminate\Cache\Repository;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
+use Madewithlove\IlluminatePsrCacheBridge\Laravel\CacheItemPool;
 use Swis\GoT\Inspector;
 use Swis\Got\Settings;
 use Swis\GoT\Settings\SettingsFactory;
@@ -32,13 +34,20 @@ class InspectGithub extends Command
     protected $settings;
 
     /**
+     * @var \Illuminate\Cache\Repository
+     */
+    protected $cache;
+
+    /**
      * InspectDirectory constructor.
      * @param \Swis\Got\Settings $settings
+     * @param \Illuminate\Cache\Repository $cache
      */
-    public function __construct(\Swis\Got\Settings $settings)
+    public function __construct(\Swis\Got\Settings $settings, Repository $cache)
     {
         parent::__construct();
         $this->settings = $settings;
+        $this->cache = $cache;
     }
 
 
@@ -52,6 +61,10 @@ class InspectGithub extends Command
     {
 
         $client = new \Github\Client();
+
+        if ($this->cache && config('game-of-tests.cache') && class_exists(CacheItemPool::class)) {
+            $client->addCache(new CacheItemPool($this->cache));
+        }
 
         $this->info('Getting repository list');
 

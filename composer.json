@@ -16,9 +16,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*|5.2.*",
         "gitonomy/gitlib": "^1.0",
-        "monolog/monolog": "^1.19",
         "swisnl/game-of-tests": "^0.2",
-        "knplabs/github-api": "^2.0"
+        "knplabs/github-api": "^2.0",
+        "madewithlove/illuminate-psr-cache-bridge": "^1.0"
     },
     "require-dev": {
     },

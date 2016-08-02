@@ -31,4 +31,9 @@ return [
 
     ],
 
+    /**
+     * Use caching to avoid GitHub rate limiting.
+     */
+    'cache' => true,
+
 ];
