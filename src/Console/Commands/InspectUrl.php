@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Swis\GoT\Inspector;
+use Swis\GoT\Settings\SettingsFactory;
 
 class InspectUrl extends Command
 {
@@ -23,6 +24,22 @@ class InspectUrl extends Command
      */
     protected $description = 'Inspect a repository by URL';
 
+
+    /**
+     * @var \Swis\Got\Settings
+     */
+    protected $settings;
+
+    /**
+     * InspectDirectory constructor.
+     * @param \Swis\Got\Settings $settings
+     */
+    public function __construct(\Swis\Got\Settings $settings)
+    {
+        parent::__construct();
+        $this->settings = $settings;
+    }
+
     /**
      * Execute the console command.
      *
@@ -32,7 +49,7 @@ class InspectUrl extends Command
      */
     public function handle()
     {
-        $inspector = new Inspector();
+        $inspector = new Inspector($this->settings);
 
         $repository = $inspector->getRepositoryByUrl($this->argument('repositoryUrl'));
 

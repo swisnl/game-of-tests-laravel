@@ -4,6 +4,7 @@ namespace Swis\GotLaravel\Providers;
 use Illuminate\Routing\Route;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Swis\GoT\Settings\SettingsFactory;
 use Swis\GotLaravel\Console\Commands\InspectDirectory;
 use Swis\GotLaravel\Console\Commands\InspectGithub;
 use Swis\GotLaravel\Console\Commands\InspectUrl;
@@ -66,13 +67,18 @@ class GameOfTestsProvider extends ServiceProvider {
     */
     public function register()
     {
+        $this->app->instance('Swis\GoT\Settings', SettingsFactory::create());
+
         $this->mergeConfigFrom(
             __DIR__.'/../../config/game-of-tests.php',
             'game-of-tests'
         );
 
         $this->commands($this->commands);
+    }
 
+    public function provides(){
+        return ['Swis\GoT\Settings'];
     }
 }
 

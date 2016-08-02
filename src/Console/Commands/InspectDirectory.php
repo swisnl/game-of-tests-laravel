@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Swis\GoT\Inspector;
+use Swis\GoT\Settings\SettingsFactory;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 
 class InspectDirectory extends Command
@@ -24,10 +25,27 @@ class InspectDirectory extends Command
      */
     protected $description = 'Inspect a directory with bare repositories';
 
+
+
     protected function logVerbose($message){
         if($this->getOutput()->isVerbose()){
             $this->info($message);
         }
+    }
+
+    /**
+     * @var \Swis\Got\Settings
+     */
+    protected $settings;
+
+    /**
+     * InspectDirectory constructor.
+     * @param \Swis\Got\Settings $settings
+     */
+    public function __construct(\Swis\Got\Settings $settings)
+    {
+        parent::__construct();
+        $this->settings = $settings;
     }
 
     /**
@@ -52,7 +70,8 @@ class InspectDirectory extends Command
 
         \Swis\GotLaravel\Models\Results::unguard();
 
-        $inspector = new Inspector();
+        $inspector = new Inspector($this->settings);
+
         foreach($scanned_directory as $path){
             $this->logVerbose('Inpecting: ' . $path);
 
