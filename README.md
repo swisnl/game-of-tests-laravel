@@ -38,7 +38,7 @@ For now it only support PhpUnit, Codeception and Behat, feel free to contibute n
 
 # Demo
 
-I made a demo available which uses this package and show the Game of Tests for the Laravel GIthubGithub organisation at [http://gameoftests.swis.nl](http://gameoftests.swis.nl).
+I made a demo available which uses this package and show the Game of Tests for the Laravel Github organisation at [http://gameoftests.swis.nl](http://gameoftests.swis.nl). For in information on installing the demo locally, please check out [swisnl/game-of-tests-laravel-demo](https://github.com/swisnl/game-of-tests-laravel-demo).
 
 # Author
 
