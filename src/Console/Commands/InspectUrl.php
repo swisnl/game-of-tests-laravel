@@ -60,6 +60,9 @@ class InspectUrl extends Command
         if(!$this->option('dry-run')){
             $remote = $inspectedRepository['remote'];
 
+
+            \Swis\GotLaravel\Models\Results::unguard();
+
             foreach($inspectedRepository['results'] as $result){
                 $insert = $result->toArray();
                 $insert['remote'] = $remote;
