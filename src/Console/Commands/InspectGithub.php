@@ -70,7 +70,7 @@ class InspectGithub extends Command
 
 
         if($this->argument('organisation') !== false){
-            $repositories = $client->organization()->repositories($this->argument('organisation'), 'owner');
+            $repositories = $client->organization()->repositories($this->argument('organisation'), 'sources');
         }
 
         $repositoryUrls = array_pluck($repositories, 'clone_url');
