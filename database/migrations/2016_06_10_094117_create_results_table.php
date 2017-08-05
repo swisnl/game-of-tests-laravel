@@ -18,10 +18,10 @@ class CreateResultsTable extends Migration {
 			$table->string('remote');
 			$table->string('filename')->index('results_file_index');
 			$table->string('line');
-			$table->string('author')->index();
-			$table->string('author_normalized')->index('author_normalized');
-			$table->string('author_slug');
-			$table->string('email');
+			$table->string('author')->default('')->index();
+			$table->string('author_normalized')->default('')->index('author_normalized');
+			$table->string('author_slug')->default('');
+			$table->string('email')->default('');
 			$table->string('date');
 			$table->string('commitHash');
 			$table->string('parser');
