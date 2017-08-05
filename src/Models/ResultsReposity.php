@@ -76,7 +76,7 @@ class ResultsRepository
         $query = \DB::query()
             ->from('results')
             ->select(DB::raw('author_normalized as author, COUNT(1) AS score, author_slug'))
-            ->groupBy('author_normalized')
+            ->groupBy('author_normalized', 'author_slug')
             ->orderBy('score', 'DESC');
 
         $this->excludedFiles($query);
@@ -88,8 +88,8 @@ class ResultsRepository
     {
         $query = \DB::query()
             ->from('results')
-            ->select(DB::raw('author, YEARWEEK(created_at) AS week, COUNT(1) AS score, author_slug'))
-            ->groupBy('author_normalized', DB::raw('YEARWEEK(created_at)'))
+            ->select(DB::raw('author, YEARWEEK(MAX(created_at)) AS week, COUNT(1) AS score, author_slug'))
+            ->groupBy('author_normalized', 'author_slug', DB::raw('YEARWEEK(created_at)'))
             ->orderBy('week', 'DESC')
             ->orderBy('score', 'DESC');
 
@@ -108,7 +108,7 @@ class ResultsRepository
                     COUNT(1) AS score, author_slug'
                 )
             )
-            ->groupBy('author_normalized', DB::raw('CONCAT(YEAR(created_at),MONTH(created_at))'))
+            ->groupBy('author_normalized', 'author_slug', DB::raw('CONCAT(YEAR(created_at),MONTH(created_at))'))
             ->orderBy('month', 'DESC')
             ->orderBy('score', 'DESC');
 
@@ -123,10 +123,10 @@ class ResultsRepository
             ->from('results')
             ->select(
                 DB::raw(
-                    'author_normalized as author, CONCAT(YEAR(created_at),MONTH(created_at)) AS month, COUNT(1) AS score, author_slug'
+                    'author_normalized as author, CONCAT(YEAR(MAX(created_at)),MONTH(MAX(created_at))) AS month, COUNT(1) AS score, author_slug'
                 )
             )
-            ->groupBy('author_normalized')
+            ->groupBy('author_normalized', 'author_slug')
             ->whereRaw('DATE_SUB(NOW(), INTERVAL ' . (int)$months . ' MONTH) < created_at')
             ->orderBy('score', 'DESC');
 
@@ -141,10 +141,10 @@ class ResultsRepository
             ->from('results')
             ->select(
                 DB::raw(
-                    'author_normalized as author, CONCAT(YEAR(created_at),MONTH(created_at)) AS month, COUNT(1) AS score, author_slug'
+                    'author_normalized as author, CONCAT(YEAR(MAX(created_at)),MONTH(MAX(created_at))) AS month, COUNT(1) AS score, author_slug'
                 )
             )
-            ->groupBy('author_normalized')
+            ->groupBy('author_normalized', 'author_slug')
             ->whereRaw(
                 '(MONTH(DATE_SUB(NOW(), INTERVAL ' . (int)$monthsBack . ' MONTH)) = MONTH(created_at) 
                 AND YEAR(DATE_SUB(NOW(), INTERVAL ' . (int)$monthsBack . ' MONTH)) = YEAR(created_at))'
