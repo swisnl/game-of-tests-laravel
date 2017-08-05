@@ -14,9 +14,9 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*|5.2.*",
+        "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
         "gitonomy/gitlib": "^1.0",
-        "swisnl/game-of-tests": "^0.2",
+        "swisnl/game-of-tests": "^1.0",
         "knplabs/github-api": "^2.0",
         "madewithlove/illuminate-psr-cache-bridge": "^1.0"
     },
