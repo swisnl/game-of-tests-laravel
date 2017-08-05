@@ -1,8 +1,5 @@
 # Game of Tests laravel 
 
-[![Packagist](https://img.shields.io/packagist/v/swisnl/game-of-tests-laravel.svg?maxAge=2592000)](https://packagist.org/packages/swisnl/game-of-tests-laravel)
-
-
 [![Latest Stable Version](https://poser.pugx.org/swisnl/game-of-tests-laravel/v/stable)](https://packagist.org/packages/game-of-tests-laravel/textsnippet) [![License](https://poser.pugx.org/swisnl/game-of-tests-laravel/license)](https://packagist.org/packages/swisnl/game-of-tests-laravel)
 
 
