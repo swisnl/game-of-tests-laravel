@@ -35,7 +35,7 @@ The reason i wanted to my own implementation for PHP was to help gamify testing 
 
 The Game of Tests works by scanning Git repositories and scanning for known test files. It uses Git blame to attribute tests to developers. You can update through multiple artisan commands for Github, bare directories, or single repositories.
 
-For now it only support PhpUnit, Codeception and Behat, feel free to contibute new parsers to [swisnl/game-of-tests](https://github.com/swisnl/game-of-tests/).
+For now it supports PhpUnit, Codeception and Behat for PHP and Ava, Jasmine, Jest, Mocha, Tape and QUnit for JavaScript. Feel free to contribute new parsers to [swisnl/game-of-tests](https://github.com/swisnl/game-of-tests/).
 
 # Demo
 
