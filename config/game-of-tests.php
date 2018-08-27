@@ -14,6 +14,13 @@ return [
     'route-prefix' => 'got',
 
     /**
+     * What remote should not be included in the statistics.
+     */
+    'excluded-remotes' => [
+
+    ],
+
+    /**
      * What filename should not be included in the statistics.
      */
     'excluded-filenames' => [

@@ -59,6 +59,11 @@ class ResultsRepository
     public function excludedFiles(&$query)
     {
 
+        $excludedRemotes = config('game-of-tests.excluded-remotes', []);
+        foreach($excludedRemotes as $remote){
+            $query->whereRaw('remote NOT LIKE "'. $remote .'"');
+        }
+
         $excludedFiles = config('game-of-tests.excluded-filenames');
         foreach($excludedFiles as $file){
             $query->whereRaw('filename NOT LIKE "'. $file .'"');

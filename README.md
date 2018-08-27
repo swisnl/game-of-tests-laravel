@@ -26,6 +26,7 @@ The reason i wanted to my own implementation for PHP was to help gamify testing 
 - [Configuration](#configuration)
   - [normalize-names](#normalize-names)
   - [route-prefix](#route-prefix)
+  - [excluded-remotes](#excluded-remotes)
   - [excluded-filenames](#excluded-filenames)
   - [excluded-authors](#excluded-authors)
 
@@ -173,6 +174,20 @@ Prefix for Game of Tests routes.
 ### Example
 
 ``'route-prefix' => 'got'``
+
+## excluded-remotes
+
+``excluded-remotes`` : array
+
+What remote should not be included in the statistics. This is database LIKE argument. 
+
+### Example
+
+```php
+'excluded-remotes' => [
+    'git@bitbucket.org:swisnl/test-%',
+]
+```
 
 ## excluded-filenames
 
