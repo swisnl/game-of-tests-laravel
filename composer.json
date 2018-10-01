@@ -14,11 +14,12 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
+        "laravel/framework": "5.5.*|5.6.*|5.7.*",
         "gitonomy/gitlib": "^1.0",
         "swisnl/game-of-tests": "^1.0",
         "knplabs/github-api": "^2.0",
-        "madewithlove/illuminate-psr-cache-bridge": "^1.0"
+        "madewithlove/illuminate-psr-cache-bridge": "^1.0",
+        "php-http/client-implementation": "^1.0"
     },
     "require-dev": {
     },
@@ -32,5 +33,12 @@
     },
     "config": {
         "preferred-install": "dist"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Swis\\GotLaravel\\Providers\\GameOfTestsProvider"
+            ]
+        }
     }
 }
